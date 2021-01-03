@@ -9,8 +9,39 @@ std::vector<Artefact*> CommonData::artefacts;
 // Таблица артефактов с зарезервированными именами (системная таблица)
 NameTable CommonData::systemNameTable{nullptr, nullptr};
 
+// формирование системной таблицы имен. Создаются общие для всех артефакты и их контексты.
+// Данные имена привязаны к текущему языку и должны быть переопределены
+// для языка с другим синтаксисом.
+void CommonData::fillSystemNameTable() {
+    // Целочисленный тип с именем INTEGER (для Оберона-7)
+    static TypeIntegerContext integerContext;
+    static Artefact integerArtefact{"INTEGER", &integerContext, true};
+    systemNameTable.append(&integerArtefact);
 
-Module::Module(): CommonData(nullptr) {}
+    // Действительный тип с именем REAL (для Оберона-7)
+    static TypeRealContext realContext;
+    static Artefact realArtefact{"REAL", &realContext, true};
+    systemNameTable.append(&realArtefact);
+
+    // Булевский тип с именем BOOLEAN (для Оберона-7)
+    static TypeBoolContext boolContext;
+    static Artefact boolArtefact{"BOOLEAN", &boolContext, true};
+    systemNameTable.append(&boolArtefact);
+
+    // Символьный тип с именем CHAR (для Оберона-7)
+    static TypeCharContext charContext;
+    static Artefact charArtefact{"CHAR", &charContext, true};
+    systemNameTable.append(&charArtefact);
+
+    // Множественный тип с именем SET (для Оберона-7)
+    static TypeSetContext setContext;
+    static Artefact setArtefact{"SET", &setContext, true};
+    systemNameTable.append(&setArtefact);
+}
+
+Module::Module(): CommonData(nullptr) {
+    fillSystemNameTable();
+}
 
 // Добавление именованного артефакта
 void Module::addArtefact(std::string name, Context* context, bool access) {
@@ -30,6 +61,7 @@ void Module::debugOut() {
 
     std::cout << "Reserved artefats:\n";
     std::cout << "------------------\n";
+    systemNameTable.debugOut();
 /*
     std::cout << "\nArtefats:\n";
     std::cout << "---------\n";

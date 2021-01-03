@@ -8,6 +8,7 @@ set(SOURCE_FILES
 
     # Sources
     main.cpp
+    testBaseScalarVar.cpp
     test1.cpp
     testModule.cpp
     testInstructions.cpp

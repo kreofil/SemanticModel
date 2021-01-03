@@ -12,7 +12,7 @@ Artefact* NameTable::find(std::string& name) {
 }
 
 // Поиск артефакта в общем пространстве имен
-Artefact* NameTable::globalFind(std::string& name) {
+Artefact* NameTable::globalFind(std::string &&name) {
     Artefact* artefact = nullptr;
     // Поиск в системной таблице, как приоритетной.
     if(systemNameTablePtr != nullptr) {
@@ -42,8 +42,9 @@ void NameTable::debugOut() {
     std::cout << "\nArtefats:\n";
     std::cout << "---------\n";
     for(Artefact* artefact: artefacts) {
-        std::cout << artefact->getName() << (artefact->getAccess()? "*: ":": ");
-        artefact->getContext()->debugOut();
+        artefact->debugOut();
+        //std::cout << artefact->getName() << (artefact->getAccess()? "*: ":": ");
+        //artefact->getContext()->debugOut();
         std::cout << std::endl;
     }
     std::cout << "----------------------\n";

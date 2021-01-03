@@ -5,7 +5,13 @@
 #include <string>
 
 // Варианты контекстов, используемых в семантической модели
-enum class ContextType {Type=0, Const, Var, Import, Proc};
+enum class ContextType {
+    Type=0,
+    Const,
+    Var,
+    Import,
+    Proc,
+};
 
 // Класс, определяющий назначение различных типов программных объектов
 class Context {

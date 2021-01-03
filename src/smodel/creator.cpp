@@ -71,7 +71,7 @@ TypePointerContext* Creator::CreateTypePointer(TypeRecordContext* r) {
 }
 
 // Создание переменной с установкой соответствующего типа
-VarContext* Creator::CreateVariable(TypeContext* type) {
+VarContext* Creator::CreateVarContext(TypeContext* type) {
     return new VarContext(type);
 }
 

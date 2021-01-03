@@ -57,11 +57,11 @@ void testModule() {
     TypePointerContext* pContext = Creator::CreateTypePointer(recordType);
     module.addArtefact("PointerToRecord", pContext, true);
 
-    VarContext* vContext = Creator::CreateVariable(Creator::CreateTypeReal());
+    VarContext* vContext = Creator::CreateVarContext(Creator::CreateTypeReal());
     module.addArtefact("var1", vContext);
     tContext = Creator::CreateTypeReal();
     module.addArtefact("Real", tContext, true);
-    vContext = Creator::CreateVariable(tContext);
+    vContext = Creator::CreateVarContext(tContext);
     module.addArtefact("var2", vContext, true);
 
     // Создание списка команд для блока инициализации

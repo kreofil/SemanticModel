@@ -94,7 +94,7 @@ void InstructionIfTrue::debugOut()
     }
     // Далее идет отладочный вывод, идентифицирующий метку
     if(opLabel != nullptr) {
-        std::cout << opLabel->getId(); // << "\n";
+        std::cout << " GOTO " << opLabel->getId(); // << "\n";
     } else {
         std::cout << "Label is absent!"; //\n";
     }
@@ -120,7 +120,7 @@ void InstructionIfFalse::debugOut()
     }
     // Далее идет отладочный вывод, идентифицирующий метку
     if(opLabel != nullptr) {
-        std::cout << opLabel->getId(); // << "\n";
+        std::cout << " GOTO " << opLabel->getId(); // << "\n";
     } else {
         std::cout << "Label is absent!"; //\n";
     }

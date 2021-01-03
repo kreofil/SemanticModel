@@ -48,8 +48,8 @@ public:
     // Создание типа-указателя на запись
     static TypePointerContext* CreateTypePointer(TypeRecordContext* r);
 
-    // Создание переменной с установкой соответствующего типа
-    static VarContext* CreateVariable(TypeContext* type);
+    // Создание контекста переменной с установкой соответствующего типа
+    static VarContext* CreateVarContext(TypeContext* type);
 
     //----------------------------------------------------------------------
     // Создание объектов, определяющих формирование списка команд

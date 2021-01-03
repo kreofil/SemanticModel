@@ -8,6 +8,7 @@
 #include "artefact.h"
 #include "nametable.h"
 #include "ilist.h"
+#include "type.h"
 
 // Класс определяющий данные, непосредственно доступные для модуля и процедур
 class CommonData {
@@ -16,9 +17,10 @@ protected:
     explicit CommonData(NameTable* parent = nullptr):
         localNameTable(&systemNameTable, parent) {}
 
-    // формирование системной таблицы имен.
-    // Создаются общие для всех артефакты и их контексты.
-    ///static void fillSystemNameTable();
+    // формирование системной таблицы имен. Создаются общие для всех артефакты и их контексты.
+    // Данные имена привязаны к текущему языку и должны быть переопределены
+    // для языка с другим синтаксисом.
+    static void fillSystemNameTable();
 
     static std::string moduleName;  // имя модуля
     // Список артефактов с зарезервированными именами
@@ -31,6 +33,9 @@ protected:
     static NameTable systemNameTable;
     // Локальная таблица текущего программного объекта (модуля, процедуры)
     NameTable localNameTable;
+public:
+    // Получение указателя на локальную таблицу имен, с которой можно начинать поиск
+    NameTable* getLocalNameTable() {return &localNameTable;}
 };
 
 // Класс, определяющий модуль семантической модели.

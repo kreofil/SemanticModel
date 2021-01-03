@@ -25,8 +25,9 @@ int main()
     //InitParser(str.c_str());
    // StartParser();
 */
-    testModule();
-    ///testInstructions();
+    ///testBaseScalarVar();
+    testInstructions();
+    ///testModule();
 
     return 0;
 }

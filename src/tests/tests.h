@@ -8,6 +8,7 @@
 
 // Тест1, предназначенный для тестирования модуля
 ///void test01();
+void testBaseScalarVar();
 void testModule();
 void testInstructions();
 

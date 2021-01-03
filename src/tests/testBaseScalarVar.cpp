@@ -4,16 +4,16 @@
 
 //using namespace std;
 
-#include "ilist.h"
+#include "module.h"
 #include "creator.h"
 
-void testInstructions() {
-    std::cout << "Semantic model Instruction List test\n";
-    std::cout << "===================\n\n";
+void testBaseScalarVar() {
+    std::cout << "Using scalar variables test\n";
+    std::cout << "===========================\n\n";
 
     Module module;      // Формирование тестовой единицы компиляции
     //Creator creator;
-    module.setModuleName("InstructionTest");
+    module.setModuleName("Hello");
     NameTable* nt = module.getLocalNameTable();
 
     // Создание целочисленной переменной
@@ -42,7 +42,6 @@ void testInstructions() {
         VarContext* vContext = Creator::CreateVarContext(tc);
         module.addArtefact("boolVar01", vContext, true);
     }
-    Context* boolContext01 = tc;
 
     // Создание действительной переменной
     // Поиск артефакта в общем пространстве имен
@@ -71,44 +70,6 @@ void testInstructions() {
         module.addArtefact("setVar01", vContext, true);
     }
 
-    // Операнды
-    OperandVar opdBool01(boolContext01);
-
-
-    // Создание списка команд для блока инициализации
-    auto pInitInstructions = module.getInitInstructionBlock();
-    InstructionLabel* pLabel00 = Creator::CreateInstructionLabel();
-    pInitInstructions->addInstructionToTail(pLabel00);
-    InstructionLabel* pLabel01 = Creator::CreateInstructionLabel();
-    pInitInstructions->addInstructionToTail(pLabel01);
-    InstructionLabel* pLabel02 = Creator::CreateInstructionLabel();
-    pInitInstructions->addInstructionToTail(pLabel02);
-    InstructionLabel iLabel02;
-    InstructionLabel* pLabel03 = Creator::CreateInstructionLabel();
-    pInitInstructions->addInstructionToTail(pLabel03);
-    InstructionIfFalse ifFalse01(&opdBool01, pLabel02, nullptr);
-    pInitInstructions->addInstructionToTail(&ifFalse01);
-    InstructionLabel* pLabel04 = Creator::CreateInstructionLabel();
-    pInitInstructions->addInstructionToTail(pLabel04);
-    InstructionGoto* pGoto01 = Creator::CreateInstructionGoto(pLabel01);
-    pInitInstructions->addInstructionToTail(pGoto01);
-    InstructionIfTrue ifTrue01(&opdBool01, pLabel00, nullptr);
-    pInitInstructions->addInstructionToTail(&ifTrue01);
-
-    // Создание списка команд для блока финализации
-    auto pFinalInstructions = module.getFinalInstructionBlock();
-    pLabel00 = Creator::CreateInstructionLabel();
-    pFinalInstructions->addInstructionToHead(pLabel00);
-    pLabel01 = Creator::CreateInstructionLabel();
-    pFinalInstructions->addInstructionToHead(pLabel01);
-    pLabel02 = Creator::CreateInstructionLabel();
-    pFinalInstructions->addInstructionToHead(pLabel02);
-    pLabel03 = Creator::CreateInstructionLabel();
-    pFinalInstructions->addInstructionToHead(pLabel03);
-    pLabel04 = Creator::CreateInstructionLabel();
-    pFinalInstructions->addInstructionToHead(pLabel04);
-    pGoto01 = Creator::CreateInstructionGoto(pLabel01);
-    pFinalInstructions->addInstructionToHead(pGoto01);
 
     module.debugOut();
 }

@@ -29,7 +29,7 @@ public:
     // Поиск артефакта в текущей таблице имен по имени
     Artefact* find(std::string &name);
     // Поиск артефакта в общем пространстве имен
-    Artefact* globalFind(std::string& name);
+    Artefact* globalFind(std::string&& name);
     // Поиск артефакта в системной таблице.
     Artefact* systemFind(std::string& name) {
         if(systemNameTablePtr != nullptr) {return systemNameTablePtr->find(name);}
