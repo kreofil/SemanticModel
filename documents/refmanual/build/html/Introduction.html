@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. Введение &#8212; документация Semantic Model </title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="shortcut icon" href="_static/cube45x45.png"/>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="prev" title="Описание семантической модели языка программирования" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигация</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Алфавитный указатель"
+             accesskey="I">указатель</a></li>
+        <li class="right" >
+          <a href="index.html" title="Описание семантической модели языка программирования"
+             accesskey="P">назад</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">документация Semantic Model </a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">1. </span>Введение</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">1. </span>Введение<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>В данном документе описывается организация семантической модели, используемой в качестве промежуточного представления, порождаемого во время компиляции с простого языка программирования высокого уровня. На текущем этапе в роли такого языка предполагается Оберон-7.</p>
+</div>
+<p>Разработка компиляторов обычно осуществляется на основе тесной связи между синтаксическим и семантическим анализаторами. То есть, в ходе синтаксического анализа входной цепочки (парсинга) практически сразу проводится анализ семантики разспознанных конструкций и определяется корректность их взаимосвязей. На основании этого строится семантически корректное промежуточное представление, используемое в дальнейшем для генерации кода. Это, в свою очередь, приводит к жесткой взаимосвязи межде синтаксисом и семантикой языка программирования. В частности, при желании построить язык, обладающий той же семантикой, но иним синтаксисом по сути приходится полностью переписывать весь компилятор вплоть до промежуточного представления.</p>
+<p>Целью данного проекта является попытка выделитьв отдельную фазу формирование и анализ семантической модели языка программирования, отделив ее от синтаксиса. Исходя из этого возникает возможность компиляции в эту модель входных цепочек, порождаемых разными грамматиками. Предполагается, что в ходе порождения семантической модели можно пренебречь семантическим анализом, осуществляя его после того, как будет полностью сформирована семантическая модель программы. Вполне понятно, что у данного подхода имеются свои недостатки. Но есть желание попробовать его и в ходе реализации проекта сопоставить плюсы и минусы.</p>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Предыдущий раздел</h4>
+  <p class="topless"><a href="index.html"
+                        title="предыдущая глава">Описание семантической модели языка программирования</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Эта страница</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/Introduction.rst.txt"
+            rel="nofollow">Исходный текст</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Быстрый поиск</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Искать" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Навигация</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Алфавитный указатель"
+             >указатель</a></li>
+        <li class="right" >
+          <a href="index.html" title="Описание семантической модели языка программирования"
+             >назад</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">документация Semantic Model </a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">1. </span>Введение</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Alexander Legalov.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.1.
+    </div>
+  </body>
+</html>
